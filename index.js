@@ -1,5 +1,7 @@
 var readLineSync = require("readline-sync");
-console.log("Hello! Welcome to FRIEND's QUIZ. You can play alone or with someone else." + "\n" + "Hope you enjoy this!!!" + "\n")
+const chalk = require('chalk');
+
+console.log(chalk.blue.bold("Hello! Welcome to FRIEND's QUIZ. You can play alone or with someone else." + "\n" + "Hope you enjoy this!!!" + "\n"))
 var score = 0;
 var quizList = [
   {
@@ -16,7 +18,7 @@ var quizList = [
   },
   {
     question: "Who does Pheobe marry ? ",
-    answer: "mark"
+    answer: "mike"
   },
   {
     question: "What was Rachel's dog name who dies ? ",
@@ -37,8 +39,8 @@ class UsersList {
   }
   printList() {
     for (let i = 0; i < this.usersList.length; i++) {
-      console.log("Name------" + " " + this.usersList[i].username);
-      console.log("Your Score------" + " " + this.usersList[i].score)
+      console.log(chalk.cyan("Name------") + " " + this.usersList[i].username);
+      console.log(chalk.cyan("Your Score------") + " " + this.usersList[i].score)
     }
 
   }
@@ -54,17 +56,17 @@ function play(question, answer) {
   var userAnswer = readLineSync.question(question);
 
   if (userAnswer.toLowerCase() === answer) {
-    console.log("Correct Answer!!" + "\n");
+    console.log(chalk.green("Correct Answer!!" + "\n"));
 
     score += 1;
   }
   else {
-    console.log("Oops! Wrong Answer" + "\n");
-    console.log("Correct answer is:" + " " + answer)
+    console.log(chalk.red("Oops! Wrong Answer" + "\n"));
+    console.log(chalk.red("Correct answer is:" + " " + answer))
 
   }
 
-  console.log("current score:" + " " + score + "\n")
+  console.log(chalk.yellow("Current Score:" + " " + score + "\n"))
 
 
 }
@@ -72,7 +74,7 @@ const user = new UsersList();
 function displayWinner() {
   const list = user.getUsers();
   if (list[0].score > list[1].score) console.log('Winner is-------- ' + list[0].username);
-  else console.log('Winner is******* ' + list[1].username);
+  else console.log(chalk.magentaBright.bold('Winner is******* ' + list[1].username));
 }
 
 
@@ -104,7 +106,7 @@ function freshGame() {
 
   }
   else {
-    console.log("Sorry! This is only for Friends Fans!!")
+    console.log(chalk.red("Sorry! This is only for Friends Fans!!"))
 
   }
 }
