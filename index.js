@@ -5,24 +5,44 @@ console.log(chalk.blue.bold("Hello! Welcome to FRIEND's QUIZ. You can play alone
 var score = 0;
 var quizList = [
   {
-    question: "What is Ross's first wife name ? ",
-    answer: "carol"
+    question: `Which of these were not Ross's wife ?\n 
+    a:Carol
+    b:Emily
+    c:Rachel
+    d:Pheobe \n`,
+    answer: "d"
   },
   {
-    question: "What is Pheobe's last name ? ",
-    answer: "buffay"
+      question: `What is Chandler's middle name ?\n 
+    a:John
+    b:Muriel
+    c:Tribbaini
+    d:Geller \n`,
+    answer: "b"
   },
   {
-    question: "What is Chandler bing's middle name ? ",
-    answer: "muriel"
+       question: `What was Rachel's fiance's name ?\n 
+    a:Paulo
+    b:Barry
+    c:Mike
+    d:Joshua \n`,
+    answer: "b"
   },
   {
-    question: "Who does Pheobe marry ? ",
-    answer: "mike"
+       question: `What was Pheobe's brother's name?\n 
+    a:Bob
+    b:Frank
+    c:Alice
+    d:Ellen \n`,
+    answer: "b"
   },
   {
-    question: "What was Rachel's dog name who dies ? ",
-    answer: "lapoh"
+       question: `How many sisters does Joey have ?\n 
+    a:4
+    b:8
+    c:5
+    d:7 \n`,
+    answer: "d"
   }
 
 ];
@@ -100,7 +120,7 @@ function startGame() {
 
 function freshGame() {
   score = 0;
-  var basicAnswer = readLineSync.question("Do you watch Friends ? ");
+  var basicAnswer = readLineSync.question("Do you watch Friends ? Answer in yes or no ");
   if (basicAnswer.toLowerCase() === "yes") {
     startGame();
 
